@@ -1,0 +1,786 @@
+CCS PCH C Compiler, Version 5.076, 56587               20-abr.-19 23:38
+
+               Filename:   C:\Users\chris\Documents\MECATRONICA SIST DUAL\Meca 2 2019\Manejo_Motores_V3.X\build\default\production\main.lst
+
+               ROM used:   1304 bytes (4%)
+                           Largest free fragment is 31460
+               RAM used:   47 (2%) at main() level
+                           82 (4%) worst case
+               Stack used: 2 locations (1 in main + 1 for interrupts)
+               Stack size: 31
+
+*
+0000:  GOTO   03EE
+*
+0008:  MOVWF  04
+000A:  MOVFF  FD8,05
+000E:  MOVFF  FE0,06
+0012:  MOVLB  0
+0014:  MOVFF  FE9,0C
+0018:  MOVFF  FEA,07
+001C:  MOVFF  FE1,08
+0020:  MOVFF  FE2,09
+0024:  MOVFF  FD9,0A
+0028:  MOVFF  FDA,0B
+002C:  MOVFF  FF3,12
+0030:  MOVFF  FF4,13
+0034:  MOVFF  FFA,14
+0038:  MOVFF  FF5,15
+003C:  MOVFF  FF6,16
+0040:  MOVFF  FF7,17
+0044:  MOVFF  00,0E
+0048:  MOVFF  01,0F
+004C:  MOVFF  02,10
+0050:  MOVFF  03,11
+0054:  BTFSS  FF2.5
+0056:  GOTO   0060
+005A:  BTFSC  FF2.2
+005C:  GOTO   00AE
+0060:  MOVFF  0E,00
+0064:  MOVFF  0F,01
+0068:  MOVFF  10,02
+006C:  MOVFF  11,03
+0070:  MOVFF  0C,FE9
+0074:  MOVFF  07,FEA
+0078:  BSF    07.7
+007A:  MOVFF  08,FE1
+007E:  MOVFF  09,FE2
+0082:  MOVFF  0A,FD9
+0086:  MOVFF  0B,FDA
+008A:  MOVFF  12,FF3
+008E:  MOVFF  13,FF4
+0092:  MOVFF  14,FFA
+0096:  MOVFF  15,FF5
+009A:  MOVFF  16,FF6
+009E:  MOVFF  17,FF7
+00A2:  MOVF   04,W
+00A4:  MOVFF  06,FE0
+00A8:  MOVFF  05,FD8
+00AC:  RETFIE 0
+.................... #include <18F4550.h> 
+.................... //////////// Standard Header file for the PIC18F4550 device //////////////// 
+.................... /////////////////////////////////////////////////////////////////////////// 
+.................... ////        (C) Copyright 1996, 2014 Custom Computer Services          //// 
+.................... //// This source code may only be used by licensed users of the CCS C  //// 
+.................... //// compiler.  This source code may only be distributed to other      //// 
+.................... //// licensed users of the CCS C compiler.  No other use, reproduction //// 
+.................... //// or distribution is permitted without written permission.          //// 
+.................... //// Derivative programs created using this software in object code    //// 
+.................... //// form are not restricted in any way.                               //// 
+.................... /////////////////////////////////////////////////////////////////////////// 
+.................... #device PIC18F4550 
+*
+00CA:  MOVF   3F,W
+00CC:  ANDLW  07
+00CE:  MOVWF  00
+00D0:  RRCF   3F,W
+00D2:  MOVWF  01
+00D4:  RRCF   01,F
+00D6:  RRCF   01,F
+00D8:  MOVLW  1F
+00DA:  ANDWF  01,F
+00DC:  MOVF   01,W
+00DE:  ADDWF  41,W
+00E0:  MOVWF  FE9
+00E2:  MOVLW  00
+00E4:  ADDWFC 42,W
+00E6:  MOVWF  FEA
+00E8:  CLRF   01
+00EA:  INCF   01,F
+00EC:  INCF   00,F
+00EE:  BRA    00F2
+00F0:  RLCF   01,F
+00F2:  DECFSZ 00,F
+00F4:  BRA    00F0
+00F6:  MOVF   40,F
+00F8:  BZ    0100
+00FA:  MOVF   01,W
+00FC:  IORWF  FEF,F
+00FE:  BRA    0106
+0100:  COMF   01,F
+0102:  MOVF   01,W
+0104:  ANDWF  FEF,F
+0106:  RETURN 0
+0108:  CLRF   01
+010A:  CLRF   02
+010C:  CLRF   00
+010E:  CLRF   03
+0110:  MOVF   50,W
+0112:  BNZ   0118
+0114:  MOVF   4F,W
+0116:  BZ    0148
+0118:  MOVLW  10
+011A:  MOVWF  51
+011C:  BCF    FD8.0
+011E:  RLCF   4D,F
+0120:  RLCF   4E,F
+0122:  RLCF   00,F
+0124:  RLCF   03,F
+0126:  MOVF   50,W
+0128:  SUBWF  03,W
+012A:  BNZ   0130
+012C:  MOVF   4F,W
+012E:  SUBWF  00,W
+0130:  BNC   0140
+0132:  MOVF   4F,W
+0134:  SUBWF  00,F
+0136:  BTFSS  FD8.0
+0138:  DECF   03,F
+013A:  MOVF   50,W
+013C:  SUBWF  03,F
+013E:  BSF    FD8.0
+0140:  RLCF   01,F
+0142:  RLCF   02,F
+0144:  DECFSZ 51,F
+0146:  BRA    011C
+0148:  RETURN 0
+014A:  MOVF   4D,W
+014C:  MULWF  4F
+014E:  MOVFF  FF3,01
+0152:  MOVFF  FF4,00
+0156:  MULWF  50
+0158:  MOVF   FF3,W
+015A:  ADDWF  00,F
+015C:  MOVF   4E,W
+015E:  MULWF  4F
+0160:  MOVF   FF3,W
+0162:  ADDWFC 00,W
+0164:  MOVWF  02
+0166:  RETURN 0
+*
+01D4:  MOVF   3F,W
+01D6:  ANDLW  07
+01D8:  MOVWF  00
+01DA:  RRCF   3F,W
+01DC:  MOVWF  01
+01DE:  RRCF   01,F
+01E0:  RRCF   01,F
+01E2:  MOVLW  1F
+01E4:  ANDWF  01,F
+01E6:  MOVF   01,W
+01E8:  ADDWF  40,W
+01EA:  MOVWF  FE9
+01EC:  MOVLW  00
+01EE:  ADDWFC 41,W
+01F0:  MOVWF  FEA
+01F2:  MOVFF  FEF,01
+01F6:  INCF   00,F
+01F8:  BRA    01FC
+01FA:  RRCF   01,F
+01FC:  DECFSZ 00,F
+01FE:  BRA    01FA
+0200:  MOVLW  01
+0202:  ANDWF  01,F
+0204:  GOTO   0362 (RETURN)
+*
+03C8:  ADDWF  FE8,W
+03CA:  CLRF   FF7
+03CC:  RLCF   FF7,F
+03CE:  ADDLW  E3
+03D0:  MOVWF  FF6
+03D2:  MOVLW  03
+03D4:  ADDWFC FF7,F
+03D6:  TBLRD*-
+03D8:  MOVF   FF5,W
+03DA:  MOVWF  FFA
+03DC:  TBLRD*
+03DE:  MOVF   FF5,W
+03E0:  MOVWF  FF9
+03E2:  DATA 16,02
+03E4:  DATA 64,02
+03E6:  DATA B2,02
+03E8:  DATA B4,02
+03EA:  DATA B6,02
+03EC:  DATA B8,02
+....................  
+.................... #list 
+....................  
+.................... #use delay(clock=20000000) //Frecuencia del cristal 
+.................... #fuses hs, noprotect, nolvp, nowdt  
+.................... #use standard_io(B)  
+....................  
+.................... #define HORARIO 1 
+.................... #define ANTIHORARIO 0 
+....................  
+.................... #define MOTOR1 1 
+.................... #define MOTOR2 2 
+.................... #define MOTOR3 3 
+.................... #define MOTOR4 4 
+.................... #define MOTOR5 5 
+.................... #define MOTOR6 6 
+....................  
+.................... /*--------------- ASIGNACION DE PINES -------------------*/ 
+....................  
+.................... int MOTORES_ENABLE_PIN = PIN_A0; 
+....................  
+.................... int MOTOR1_STEP_PIN = PIN_A1; 
+.................... int MOTOR1_DIR_PIN = PIN_A2; 
+....................  
+.................... int MOTOR2_STEP_PIN = PIN_A3; 
+.................... int MOTOR2_DIR_PIN = PIN_A4; 
+.................... // 
+.................... //int MOTOR3_STEP_PIN = PIN_B0; 
+.................... //int MOTOR3_DIR_PIN = PIN_B1; 
+.................... // 
+.................... //int MOTOR4_STEP_PIN = PIN_B0; 
+.................... //int MOTOR4_DIR_PIN = PIN_B1; 
+.................... // 
+.................... //int MOTOR5_STEP_PIN = PIN_B0; 
+.................... //int MOTOR5_DIR_PIN = PIN_B1; 
+.................... // 
+.................... //int MOTOR6_STEP_PIN = PIN_B0; 
+.................... //int MOTOR6_DIR_PIN = PIN_B1; 
+....................  
+.................... /*------------------- VARIABLES -----------------------*/ 
+....................  
+.................... int flag_inicio = 0; 
+.................... int32 cont_pasos = 0; 
+.................... int16 cont_vel = 0; 
+....................  
+.................... //Funcion de mapeado: 
+....................  
+.................... int16 map(int16 valor, int16 fS, int16 fE, int16 tS, int16 tE) { 
+....................     return ((long)(valor - fS) * (long)(tE - tS)) / ((fE - fS) + tS); 
+*
+0168:  MOVF   41,W
+016A:  SUBWF  3F,W
+016C:  MOVWF  49
+016E:  MOVF   42,W
+0170:  SUBWFB 40,W
+0172:  MOVWF  4A
+0174:  MOVF   45,W
+0176:  SUBWF  47,W
+0178:  MOVWF  00
+017A:  MOVF   46,W
+017C:  SUBWFB 48,W
+017E:  MOVWF  03
+0180:  MOVFF  00,4B
+0184:  MOVWF  4C
+0186:  MOVFF  4A,4E
+018A:  MOVFF  49,4D
+018E:  MOVWF  50
+0190:  MOVFF  00,4F
+0194:  RCALL  014A
+0196:  MOVFF  02,4A
+019A:  MOVFF  01,4D
+019E:  MOVF   41,W
+01A0:  SUBWF  43,W
+01A2:  MOVWF  4B
+01A4:  MOVF   42,W
+01A6:  SUBWFB 44,W
+01A8:  MOVWF  4C
+01AA:  MOVF   45,W
+01AC:  ADDWF  4B,W
+01AE:  MOVWF  01
+01B0:  MOVF   46,W
+01B2:  ADDWFC 4C,W
+01B4:  MOVWF  03
+01B6:  MOVFF  01,4B
+01BA:  MOVWF  4C
+01BC:  MOVFF  02,4E
+01C0:  MOVWF  50
+01C2:  MOVFF  01,4F
+01C6:  RCALL  0108
+01C8:  MOVFF  02,03
+01CC:  MOVFF  02,02
+01D0:  GOTO   033E (RETURN)
+.................... } 
+....................  
+.................... //Funcion para el control de los motores. 
+.................... // * numero_motor: motor que se desea mover. Puede ser un valor del 1 al 6. 
+.................... // * sent: sentido de giro del motor. 0 -> antihorario; 1 -> horario. 
+.................... // * pos_ang: posicion en angulo del motor. 
+.................... // * vel: velocidad del giro del motor en porcentaje. Los valores puden ser del 0% al 100% 
+.................... // * micro_step: micro pasos seteados para el motor (1, 2, 4, 8, 16, 32) 
+....................  
+.................... void controlMotor(int numero_motor, int sent, int16 pos_ang, int16 vel, int micro_step) { 
+....................      
+....................     int16 vel_delay; 
+....................     int16 angulo_x_paso; 
+....................     int32 cant_pasos; 
+....................     int motor; 
+....................      
+....................     switch(numero_motor){ 
+*
+0208:  MOVLW  01
+020A:  SUBWF  2F,W
+020C:  ADDLW  FA
+020E:  BC    02B8
+0210:  ADDLW  06
+0212:  GOTO   03C8
+....................      
+....................         case MOTOR1: 
+....................             if(!sent) output_low(MOTOR1_DIR_PIN);  
+0216:  MOVF   30,F
+0218:  BNZ   023C
+021A:  MOVFF  1B,3F
+021E:  CLRF   40
+0220:  MOVLW  0F
+0222:  MOVWF  42
+0224:  MOVLW  89
+0226:  MOVWF  41
+0228:  RCALL  00CA
+022A:  MOVFF  1B,3F
+022E:  CLRF   40
+0230:  MOVLW  0F
+0232:  MOVWF  42
+0234:  MOVLW  92
+0236:  MOVWF  41
+0238:  RCALL  00CA
+023A:  BRA    025E
+....................             else output_high(MOTOR1_DIR_PIN); 
+023C:  MOVFF  1B,3F
+0240:  MOVLW  01
+0242:  MOVWF  40
+0244:  MOVLW  0F
+0246:  MOVWF  42
+0248:  MOVLW  89
+024A:  MOVWF  41
+024C:  RCALL  00CA
+024E:  MOVFF  1B,3F
+0252:  CLRF   40
+0254:  MOVLW  0F
+0256:  MOVWF  42
+0258:  MOVLW  92
+025A:  MOVWF  41
+025C:  RCALL  00CA
+....................             motor = MOTOR1_STEP_PIN; 
+025E:  MOVFF  1A,3E
+....................             break; 
+0262:  BRA    02B8
+....................              
+....................         case MOTOR2: 
+....................             if(!sent) output_low(MOTOR2_DIR_PIN); 
+0264:  MOVF   30,F
+0266:  BNZ   028A
+0268:  MOVFF  1D,3F
+026C:  CLRF   40
+026E:  MOVLW  0F
+0270:  MOVWF  42
+0272:  MOVLW  89
+0274:  MOVWF  41
+0276:  RCALL  00CA
+0278:  MOVFF  1D,3F
+027C:  CLRF   40
+027E:  MOVLW  0F
+0280:  MOVWF  42
+0282:  MOVLW  92
+0284:  MOVWF  41
+0286:  RCALL  00CA
+0288:  BRA    02AC
+....................             else output_high(MOTOR2_DIR_PIN); 
+028A:  MOVFF  1D,3F
+028E:  MOVLW  01
+0290:  MOVWF  40
+0292:  MOVLW  0F
+0294:  MOVWF  42
+0296:  MOVLW  89
+0298:  MOVWF  41
+029A:  RCALL  00CA
+029C:  MOVFF  1D,3F
+02A0:  CLRF   40
+02A2:  MOVLW  0F
+02A4:  MOVWF  42
+02A6:  MOVLW  92
+02A8:  MOVWF  41
+02AA:  RCALL  00CA
+....................             motor = MOTOR2_STEP_PIN; 
+02AC:  MOVFF  1C,3E
+....................             break; 
+02B0:  BRA    02B8
+....................              
+....................         case MOTOR3: 
+.................... //            if(!sent) output_low(MOTOR3_DIR_PIN); 
+.................... //            else output_high(MOTOR3_DIR_PIN); 
+....................             break; 
+02B2:  BRA    02B8
+....................              
+....................         case MOTOR4: 
+.................... //            if(!sent) output_low(MOTOR4_DIR_PIN); 
+.................... //            else output_high(MOTOR4_DIR_PIN); 
+....................             break; 
+02B4:  BRA    02B8
+....................              
+....................         case MOTOR5: 
+.................... //            if(!sent) output_low(MOTOR5_DIR_PIN); 
+.................... //            else output_high(MOTOR5_DIR_PIN); 
+....................             break; 
+02B6:  BRA    02B8
+....................              
+....................         case MOTOR6: 
+.................... //            if(!sent) output_low(MOTOR6_DIR_PIN); 
+.................... //            else output_high(MOTOR6_DIR_PIN); 
+....................             break; 
+....................          
+....................     } 
+....................      
+....................     angulo_x_paso = 1800 / micro_step; 
+02B8:  MOVLW  07
+02BA:  MOVWF  4E
+02BC:  MOVLW  08
+02BE:  MOVWF  4D
+02C0:  CLRF   50
+02C2:  MOVFF  35,4F
+02C6:  RCALL  0108
+02C8:  MOVFF  02,39
+02CC:  MOVFF  01,38
+....................     cant_pasos = ((pos_ang * 100) / angulo_x_paso) * 20; 
+02D0:  MOVFF  32,4E
+02D4:  MOVFF  31,4D
+02D8:  CLRF   50
+02DA:  MOVLW  64
+02DC:  MOVWF  4F
+02DE:  RCALL  014A
+02E0:  MOVFF  02,40
+02E4:  MOVFF  01,3F
+02E8:  MOVFF  02,4E
+02EC:  MOVFF  01,4D
+02F0:  MOVFF  39,50
+02F4:  MOVFF  38,4F
+02F8:  RCALL  0108
+02FA:  MOVFF  02,40
+02FE:  MOVFF  01,3F
+0302:  MOVFF  02,4E
+0306:  MOVFF  01,4D
+030A:  CLRF   50
+030C:  MOVLW  14
+030E:  MOVWF  4F
+0310:  RCALL  014A
+0312:  CLRF   3D
+0314:  CLRF   3C
+0316:  MOVFF  02,3B
+031A:  MOVFF  01,3A
+....................     vel_delay = map(vel, 0, 100, 600, 0); //660 max 
+031E:  MOVFF  34,40
+0322:  MOVFF  33,3F
+0326:  CLRF   42
+0328:  CLRF   41
+032A:  CLRF   44
+032C:  MOVLW  64
+032E:  MOVWF  43
+0330:  MOVLW  02
+0332:  MOVWF  46
+0334:  MOVLW  58
+0336:  MOVWF  45
+0338:  CLRF   48
+033A:  CLRF   47
+033C:  BRA    0168
+033E:  MOVFF  02,37
+0342:  MOVFF  01,36
+....................      
+....................     if(cont_vel >= vel_delay){ 
+0346:  MOVF   37,W
+0348:  SUBWF  24,W
+034A:  BNC   039C
+034C:  BNZ   0354
+034E:  MOVF   36,W
+0350:  SUBWF  23,W
+0352:  BNC   039C
+....................         output_toggle(motor); 
+0354:  MOVFF  3E,3F
+0358:  MOVLW  0F
+035A:  MOVWF  41
+035C:  MOVLW  80
+035E:  MOVWF  40
+0360:  BRA    01D4
+0362:  MOVLW  00
+0364:  BTFSS  01.0
+0366:  MOVLW  01
+0368:  MOVFF  3E,3F
+036C:  MOVWF  40
+036E:  MOVLW  0F
+0370:  MOVWF  42
+0372:  MOVLW  89
+0374:  MOVWF  41
+0376:  RCALL  00CA
+0378:  MOVFF  3E,3F
+037C:  CLRF   40
+037E:  MOVLW  0F
+0380:  MOVWF  42
+0382:  MOVLW  92
+0384:  MOVWF  41
+0386:  RCALL  00CA
+....................         cont_vel = 0; 
+0388:  CLRF   24
+038A:  CLRF   23
+....................         cont_pasos++; 
+038C:  MOVLW  01
+038E:  ADDWF  1F,F
+0390:  BTFSC  FD8.0
+0392:  INCF   20,F
+0394:  BTFSC  FD8.2
+0396:  INCF   21,F
+0398:  BTFSC  FD8.2
+039A:  INCF   22,F
+....................     } 
+....................      
+....................     if (cont_pasos >= cant_pasos) { 
+039C:  MOVF   3D,W
+039E:  SUBWF  22,W
+03A0:  BNC   03C4
+03A2:  BNZ   03BA
+03A4:  MOVF   3C,W
+03A6:  SUBWF  21,W
+03A8:  BNC   03C4
+03AA:  BNZ   03BA
+03AC:  MOVF   3B,W
+03AE:  SUBWF  20,W
+03B0:  BNC   03C4
+03B2:  BNZ   03BA
+03B4:  MOVF   3A,W
+03B6:  SUBWF  1F,W
+03B8:  BNC   03C4
+....................         flag_inicio = 0; 
+03BA:  CLRF   1E
+....................         cont_pasos = 0; 
+03BC:  CLRF   22
+03BE:  CLRF   21
+03C0:  CLRF   20
+03C2:  CLRF   1F
+....................     } 
+03C4:  GOTO   04E8 (RETURN)
+.................... } 
+....................  
+.................... #int_TIMER0 
+....................  
+.................... void TIMER0_isr(void) { 
+....................      
+....................     if (flag_inicio == 1) cont_vel++; //Variable para temporizar 
+*
+00AE:  DECFSZ 1E,W
+00B0:  BRA    00BA
+00B2:  INCF   23,F
+00B4:  BTFSC  FD8.2
+00B6:  INCF   24,F
+00B8:  BRA    00BE
+....................     else cont_vel = 0; 
+00BA:  CLRF   24
+00BC:  CLRF   23
+....................      
+....................     set_timer0(217); //Se recarga el timer0. Desborda cada 1ms 
+00BE:  CLRF   FD7
+00C0:  MOVLW  D9
+00C2:  MOVWF  FD6
+....................      
+....................     //set_timer0(208) y RTCC_DIV_4 para 200 us 
+....................      
+00C4:  BCF    FF2.2
+00C6:  GOTO   0060
+.................... }  
+....................  
+.................... void main() { 
+*
+03EE:  CLRF   FF8
+03F0:  BCF    FD0.7
+03F2:  BSF    07.7
+03F4:  CLRF   19
+03F6:  MOVLW  01
+03F8:  MOVWF  1A
+03FA:  MOVLW  02
+03FC:  MOVWF  1B
+03FE:  MOVLW  03
+0400:  MOVWF  1C
+0402:  MOVLW  04
+0404:  MOVWF  1D
+0406:  CLRF   1E
+0408:  CLRF   22
+040A:  CLRF   21
+040C:  CLRF   20
+040E:  CLRF   1F
+0410:  CLRF   24
+0412:  CLRF   23
+0414:  MOVF   FC1,W
+0416:  ANDLW  C0
+0418:  IORLW  0F
+041A:  MOVWF  FC1
+041C:  MOVLW  07
+041E:  MOVWF  FB4
+0420:  CLRF   25
+0422:  CLRF   27
+0424:  MOVLW  05
+0426:  MOVWF  26
+0428:  CLRF   29
+042A:  MOVLW  5A
+042C:  MOVWF  28
+042E:  MOVLW  08
+0430:  MOVWF  2A
+0432:  CLRF   2B
+0434:  CLRF   2C
+0436:  CLRF   2D
+0438:  CLRF   2E
+....................      
+....................     int motor_dir = ANTIHORARIO; 
+....................     int16 motor_ang = 5; 
+....................     int16 motor_vel = 90; 
+....................     int ustep = 8; 
+....................      
+....................     int flag_boton1 = 0; 
+....................     int flag_boton2 = 0; 
+....................     int flag_boton3 = 0; 
+....................     int flag_boton4 = 0; 
+....................      
+....................     setup_timer_0(RTCC_8_BIT | RTCC_DIV_32); //Configuración timer0 
+043A:  MOVLW  C4
+043C:  MOVWF  FD5
+....................     set_timer0(217); //Carga del timer0. Desborda cada 1ms 
+043E:  CLRF   FD7
+0440:  MOVLW  D9
+0442:  MOVWF  FD6
+....................     enable_interrupts(INT_TIMER0); //Habilita interrupción timer0 
+0444:  BSF    FF2.5
+....................     enable_interrupts(GLOBAL); //Habilita interrupción general 
+0446:  MOVLW  C0
+0448:  IORWF  FF2,F
+....................      
+....................     while(TRUE) { 
+....................          
+....................         if(!input(PIN_B0)){ 
+044A:  BSF    F93.0
+044C:  BTFSC  F81.0
+044E:  BRA    045C
+....................             if(!flag_boton1){ 
+0450:  MOVF   2B,F
+0452:  BNZ   045A
+....................                 flag_inicio = 1; 
+0454:  MOVLW  01
+0456:  MOVWF  1E
+....................                 flag_boton1 = 1; 
+0458:  MOVWF  2B
+....................             } 
+....................         } 
+045A:  BRA    045E
+....................         else flag_boton1 = 0; 
+045C:  CLRF   2B
+....................          
+....................         if(!input(PIN_B1)){ 
+045E:  BSF    F93.1
+0460:  BTFSC  F81.1
+0462:  BRA    0474
+....................             if(!flag_boton2){ 
+0464:  MOVF   2C,F
+0466:  BNZ   0472
+....................                 motor_ang++; 
+0468:  INCF   26,F
+046A:  BTFSC  FD8.2
+046C:  INCF   27,F
+....................                 flag_boton2 = 1; 
+046E:  MOVLW  01
+0470:  MOVWF  2C
+....................             } 
+....................         } 
+0472:  BRA    0476
+....................         else flag_boton2 = 0; 
+0474:  CLRF   2C
+....................          
+....................         if(!input(PIN_B2)){ 
+0476:  BSF    F93.2
+0478:  BTFSC  F81.2
+047A:  BRA    048E
+....................             if(!flag_boton3){ 
+047C:  MOVF   2D,F
+047E:  BNZ   048C
+....................                 motor_vel = motor_vel - 5; 
+0480:  MOVLW  05
+0482:  SUBWF  28,F
+0484:  MOVLW  00
+0486:  SUBWFB 29,F
+....................                 flag_boton3 = 1; 
+0488:  MOVLW  01
+048A:  MOVWF  2D
+....................             } 
+....................         } 
+048C:  BRA    0490
+....................         else flag_boton3 = 0; 
+048E:  CLRF   2D
+....................          
+....................         if(!input(PIN_B3)){ 
+0490:  BSF    F93.3
+0492:  BTFSC  F81.3
+0494:  BRA    04A2
+....................             if(!flag_boton4){ 
+0496:  MOVF   2E,F
+0498:  BNZ   04A0
+....................                 motor_dir = ~motor_dir; 
+049A:  COMF   25,F
+....................                 flag_boton4 = 1; 
+049C:  MOVLW  01
+049E:  MOVWF  2E
+....................             } 
+....................         } 
+04A0:  BRA    04A4
+....................         else flag_boton4 = 0; 
+04A2:  CLRF   2E
+....................          
+....................         if(flag_inicio == 1){  
+04A4:  DECFSZ 1E,W
+04A6:  BRA    04EA
+....................             output_high(MOTORES_ENABLE_PIN);  //Habilita el movimiento de los motores 
+04A8:  MOVFF  19,3F
+04AC:  MOVLW  01
+04AE:  MOVWF  40
+04B0:  MOVLW  0F
+04B2:  MOVWF  42
+04B4:  MOVLW  89
+04B6:  MOVWF  41
+04B8:  RCALL  00CA
+04BA:  MOVFF  19,3F
+04BE:  CLRF   40
+04C0:  MOVLW  0F
+04C2:  MOVWF  42
+04C4:  MOVLW  92
+04C6:  MOVWF  41
+04C8:  RCALL  00CA
+....................             controlMotor(MOTOR1, motor_dir, motor_ang, motor_vel, ustep); //Controla el motor 
+04CA:  MOVLW  01
+04CC:  MOVWF  2F
+04CE:  MOVFF  25,30
+04D2:  MOVFF  27,32
+04D6:  MOVFF  26,31
+04DA:  MOVFF  29,34
+04DE:  MOVFF  28,33
+04E2:  MOVFF  2A,35
+04E6:  BRA    0208
+....................         } 
+04E8:  BRA    0518
+....................         else{ 
+....................             cont_vel = 0; 
+04EA:  CLRF   24
+04EC:  CLRF   23
+....................             cont_pasos = 0; 
+04EE:  CLRF   22
+04F0:  CLRF   21
+04F2:  CLRF   20
+04F4:  CLRF   1F
+....................             flag_inicio = 0; 
+04F6:  CLRF   1E
+....................             output_low(MOTORES_ENABLE_PIN); //Deshabilita los motores 
+04F8:  MOVFF  19,3F
+04FC:  CLRF   40
+04FE:  MOVLW  0F
+0500:  MOVWF  42
+0502:  MOVLW  89
+0504:  MOVWF  41
+0506:  RCALL  00CA
+0508:  MOVFF  19,3F
+050C:  CLRF   40
+050E:  MOVLW  0F
+0510:  MOVWF  42
+0512:  MOVLW  92
+0514:  MOVWF  41
+0516:  RCALL  00CA
+....................         } 
+0518:  BRA    044A
+....................          
+....................     }  
+....................      
+.................... } 
+051A:  SLEEP 
+
+Configuration Fuses:
+   Word  1: CC3F   PLL12 CPUDIV4 USBDIV HS FCMEN IESO
+   Word  2: 1E3E   PUT BROWNOUT BORV21 VREGEN NOWDT WDT32768
+   Word  3: 8700   CCP2C1 PBADEN LPT1OSC MCLR
+   Word  4: 00A1   STVREN NOLVP ICSP2 NOXINST NODEBUG
+   Word  5: C00F   NOPROTECT NOCPB NOCPD
+   Word  6: E00F   NOWRT NOWRTC NOWRTB NOWRTD
+   Word  7: 400F   NOEBTR NOEBTRB

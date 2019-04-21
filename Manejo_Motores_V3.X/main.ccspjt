@@ -1,0 +1,18 @@
+[PROJECT]
+Target=build\default\production\main.hex
+Processor_Text=PIC18F4550
+CCSVersion=5.076
+Compiler=PCH
+[Target Data]
+FileList=main.c
+[Directories]
+Include=C:\PROGRA~2\PICC\devices\;C:\PROGRA~2\PICC\drivers\
+[build\default\production\main.c]
+Type=4
+[mru-list]
+1=build\default\production\main.c
+[build\default\debug\main.c]
+Type=4
+[Units]
+Count=1
+1=main (main)

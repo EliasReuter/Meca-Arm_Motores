@@ -1,0 +1,141 @@
+000     @SCRATCH
+001     @SCRATCH
+001     _RETURN_
+002     @SCRATCH
+003     @SCRATCH
+004     @INTERRUPT_AREA
+005     @INTERRUPT_AREA
+006     @INTERRUPT_AREA
+007     @INTERRUPT_AREA
+008     @INTERRUPT_AREA
+009     @INTERRUPT_AREA
+00A     @INTERRUPT_AREA
+00B     @INTERRUPT_AREA
+00C     @INTERRUPT_AREA
+00D     @INTERRUPT_AREA
+00E     @INTERRUPT_AREA
+00F     @INTERRUPT_AREA
+010     @INTERRUPT_AREA
+011     @INTERRUPT_AREA
+012     @INTERRUPT_AREA
+013     @INTERRUPT_AREA
+014     @INTERRUPT_AREA
+015     @INTERRUPT_AREA
+016     @INTERRUPT_AREA
+017     @INTERRUPT_AREA
+018     @INTERRUPT_AREA
+019     MOTORES_ENABLE_PIN
+01A     MOTOR1_STEP_PIN
+01B     MOTOR1_DIR_PIN
+01C     MOTOR2_STEP_PIN
+01D     MOTOR2_DIR_PIN
+01E     flag_inicio
+01F-022 cont_pasos
+023-024 cont_vel
+025     MAIN.motor_dir
+026-027 MAIN.motor_ang
+028-029 MAIN.motor_vel
+02A     MAIN.ustep
+02B     MAIN.flag_boton1
+02C     MAIN.flag_boton2
+02D     MAIN.flag_boton3
+02E     MAIN.flag_boton4
+02F     controlMotor.numero_motor
+030     controlMotor.sent
+031-032 controlMotor.pos_ang
+033-034 controlMotor.vel
+035     controlMotor.micro_step
+036-037 controlMotor.vel_delay
+038-039 controlMotor.angulo_x_paso
+03A-03D controlMotor.cant_pasos
+03E     controlMotor.motor
+03F     @WRITEBITA.P1
+03F-040 map.valor
+03F     @READBITA.P1
+03F     controlMotor.@SCRATCH1
+040-041 @READBITA.P1
+040     @WRITEBITA.P2
+040     controlMotor.@SCRATCH2
+041-042 map.fS
+041-042 @WRITEBITA.P1
+043-044 map.fE
+045-046 map.tS
+047-048 map.tE
+049     map.@SCRATCH1
+04A     map.@SCRATCH2
+04B     map.@SCRATCH3
+04C     map.@SCRATCH4
+04D-04E @MUL1616.P1
+04D-04E @DIV1616.P2
+04F-050 @DIV1616.P1
+04F-050 @MUL1616.P2
+051     @MUL1616.@SCRATCH1
+051     @DIV1616.@SCRATCH1
+F83     PSP_DATA
+FB4.6   C1OUT
+FB4.7   C2OUT
+FBB     CCP_2_LOW
+FBB     CCP_2
+FBC     CCP_2_HIGH
+FBE     CCP_1
+FBE     CCP_1_LOW
+FBF     CCP_1_HIGH
+FE1-FE2 @READ_PACKED_MEMORY.P1
+FE1-FE2 @WRITE_PACKED_MEMORY.P2
+FE9-FEA @WRITE_PROGRAM_MEMORY.P1
+FE9-FEA @READ_PROGRAM_MEMORY.P2
+FE9-FEA @WRITE_PACKED_MEMORY.P3
+FE9-FEA @READ_PACKED_MEMORY.P4
+FF6-FF8 @WRITE_PROGRAM_MEMORY.P1
+FF6-FF8 @READ_PROGRAM_MEMORY.P2
+
+ROM Allocation:
+0000AE  TIMER0_isr
+0000CA  @WRITEBITA
+000108  @DIV1616
+00014A  @MUL1616
+000168  map
+0001D4  @READBITA
+000208  controlMotor
+0003C8  @goto40151
+0003EE  MAIN
+0003EE  @cinit1
+000420  @cinit2
+
+Project Directory:
+    C:\Users\chris\Documents\MECATRONICA SIST DUAL\Meca 2 2019\Manejo_Motores_V3.X\
+
+Project Files:
+    main.c                                                  [20-abr.-19 23:38  CRC=FB5AA24F]
+    ..\..\..\..\..\..\PROGRA~2\PICC\devices\18F4550.h       [15-ene.-18 15:57  CRC=06200171]
+
+Source signature=079AA531
+Program memory checksum=0000
+Program memory CRC=0000
+Hex file CRC=385A
+
+Units:
+    main (main)
+
+Compiler Settings:
+    Processor:      PIC18F4550
+    Pointer Size:   16
+    ADC Range:      0-255
+    Opt Level:      9
+    Short,Int,Long: UNSIGNED: 1,8,16
+    Float,Double:   32,32
+    Compile Mode:       CCS5
+    Predefined symbols:
+       #define __18F4550 1
+
+Output Files:
+    XREF file:   build\default\production\main.xsym
+    Errors:      build\default\production\main.err
+    Ext Symbols: build\default\production\main.esym
+    INHX32:      build\default\production\main.hex
+    Symbols:     build\default\production\main.sym
+    List:        build\default\production\main.lst
+    Debug/COFF:  build\default\production\main.cof
+    Project:     main.ccspjt
+    Call Tree:   build\default\production\main.tre
+    Statistics:  build\default\production\main.STA
